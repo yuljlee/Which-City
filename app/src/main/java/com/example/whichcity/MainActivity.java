@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                     Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                     try {
-                        String city = hereLocation(location.getLatitude(), location.getLongitude());
+                        String city = getCityName(location.getLatitude(), location.getLongitude());
                         textView.setText(city);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                     Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                     try {
-                        String city = hereLocation(location.getLatitude(), location.getLongitude());
+                        String city = getCityName(location.getLatitude(), location.getLongitude());
                         textView.setText(city);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String hereLocation(double lat, double lon) {
+    private String getCityName(double lat, double lon) {
         String cityName = "";
 
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
